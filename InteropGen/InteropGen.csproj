@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Il2CppInterop.Generator" Version="1.4.6" />
+      <PackageReference Include="Il2CppInterop.Generator" Version="1.4.7" />
         <ProjectReference Include="..\Cpp2IL.Wrapper\Cpp2IL.Wrapper.csproj" />
     </ItemGroup>
 

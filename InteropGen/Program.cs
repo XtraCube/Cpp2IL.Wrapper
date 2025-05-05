@@ -1,5 +1,4 @@
-﻿using AsmResolver.DotNet;
-using Il2CppInterop.Generator;
+﻿using Il2CppInterop.Generator;
 using Il2CppInterop.Generator.Runners;
 
 namespace InteropGen;
@@ -15,6 +14,12 @@ public static class Program
         var outputDirectory = args[4];
 
         var sourceAssemblies = Cpp2IL.Wrapper.Program.Main([gameAssemblyPath, metadataPath, unityVersion]);
+
+        var dummyPath = Path.Combine(outputDirectory, "dummy");
+        foreach (var assembly in sourceAssemblies)
+        {
+            assembly.Write(dummyPath);
+        }
 
         var opts = new GeneratorOptions
         {
