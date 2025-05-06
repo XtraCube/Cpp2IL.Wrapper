@@ -24,7 +24,7 @@ public static class Program
 
         foreach (var assembly in sourceAssemblies)
         {
-            assembly.Write(dummyPath + Path.DirectorySeparatorChar + assembly.Name);
+            assembly.Write(Path.Combine(dummyPath, assembly.Name + ".dll"));
         }
 
         var opts = new GeneratorOptions
