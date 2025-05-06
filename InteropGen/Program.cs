@@ -17,6 +17,11 @@ public static class Program
         var sourceAssemblies = Cpp2IL.Wrapper.Program.Main([gameAssemblyPath, metadataPath, unityVersion]);
 
         var dummyPath = Path.Combine(outputDirectory, "dummy");
+        if (!Directory.Exists(dummyPath))
+        {
+            Directory.CreateDirectory(dummyPath);
+        }
+
         foreach (var assembly in sourceAssemblies)
         {
             assembly.Write(dummyPath + Path.DirectorySeparatorChar + assembly.Name);
