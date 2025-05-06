@@ -1,4 +1,5 @@
-﻿using Il2CppInterop.Generator;
+﻿using System.Diagnostics;
+using Il2CppInterop.Generator;
 using Il2CppInterop.Generator.Runners;
 
 namespace InteropGen;
@@ -18,7 +19,7 @@ public static class Program
         var dummyPath = Path.Combine(outputDirectory, "dummy");
         foreach (var assembly in sourceAssemblies)
         {
-            assembly.Write(dummyPath);
+            assembly.Write(dummyPath + Path.DirectorySeparatorChar + assembly.Name);
         }
 
         var opts = new GeneratorOptions
@@ -30,8 +31,12 @@ public static class Program
             Parallel = true
         };
 
+        var stopwatch = new Stopwatch();
+        stopwatch.Start();
         Il2CppInteropGenerator.Create(opts)
             .AddInteropAssemblyGenerator()
             .Run();
+        stopwatch.Stop();
+        Console.WriteLine($"IL2CppInterop Processing took {stopwatch.ElapsedMilliseconds}ms");
     }
 }
