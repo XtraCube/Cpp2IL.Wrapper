@@ -42,12 +42,12 @@ public static class Program
         }
 
         var assemblies = new AsmResolverDllOutputFormatDefault().BuildAssemblies(Cpp2IlApi.CurrentAppContext);
-        
-        stopwatch.Stop();
-        Console.WriteLine($"Cpp2IL Processing took {stopwatch.ElapsedMilliseconds}ms");
 
         LibCpp2IlMain.Reset();
         Cpp2IlApi.CurrentAppContext = null;
+        
+        stopwatch.Stop();
+        Console.WriteLine($"Cpp2IL Processing took {stopwatch.ElapsedMilliseconds}ms");
         
         return assemblies;
     }

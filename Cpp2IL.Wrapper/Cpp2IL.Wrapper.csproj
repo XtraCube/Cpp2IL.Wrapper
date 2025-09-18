@@ -6,8 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Samboy063.Cpp2IL.Core" Version="2022.1.0-development.1265" />
-      <PackageReference Include="Samboy063.LibCpp2IL" Version="2022.1.0-development.1265" />
+      <PackageReference Include="Samboy063.Cpp2IL.Core" Version="2022.1.0-development.1393" />
+      <PackageReference Include="Samboy063.LibCpp2IL" Version="2022.1.0-development.1393" />
     </ItemGroup>
 
 </Project>

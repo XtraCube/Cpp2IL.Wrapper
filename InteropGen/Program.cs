@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using AsmResolver.DotNet;
 using Il2CppInterop.Generator;
 using Il2CppInterop.Generator.Runners;
 
@@ -27,9 +28,10 @@ public static class Program
             assembly.Write(Path.Combine(dummyPath, assembly.Name + ".dll"));
         }
 
+        sourceAssemblies = Directory.EnumerateFiles(dummyPath, "*.dll", SearchOption.AllDirectories).Select(AssemblyDefinition.FromFile).ToList();
+
         var opts = new GeneratorOptions
         {
-            GameAssemblyPath = gameAssemblyPath,
             Source = sourceAssemblies,
             OutputDir = outputDirectory,
             UnityBaseLibsDir = unityLibsDirectory,
