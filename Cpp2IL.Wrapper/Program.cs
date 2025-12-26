@@ -22,6 +22,7 @@ public static class Program
         var unityVersion = UnityVersion.Parse(unityVersionString);
 
         InstructionSetRegistry.RegisterInstructionSet<NewArmV8InstructionSet>(DefaultInstructionSets.ARM_V8);
+        InstructionSetRegistry.RegisterInstructionSet<ArmV7InstructionSet>(DefaultInstructionSets.ARM_V7);
         LibCpp2IlBinaryRegistry.RegisterBuiltInBinarySupport();
         
         var stopwatch = new Stopwatch();
