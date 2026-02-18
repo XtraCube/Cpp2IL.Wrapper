@@ -9,6 +9,12 @@ public static class Program
 {
     public static void Main(string[] args)
     {
+        if (args.Length != 5) 
+        {
+            Console.WriteLine("Usage: InteropGen <gameAssemblyPath> <metadataPath> <unityVersion> <unityLibsDirectory> <outputDirectory>");
+            return;
+        }
+
         var gameAssemblyPath = args[0];
         var metadataPath = args[1];
         var unityVersion = args[2];
